@@ -26,7 +26,7 @@ endif
 echon " :: " 
 
 "------------------------------------------------------------------------
-" BCS specific pathes
+" @work specific pathes
 "------------------------------------------------------------------------
 if (work)
 	echo "bcs config"
@@ -93,7 +93,7 @@ set splitright
 " leader key defined own key mappings
 let mapleader = " "
 
-if (BCS)
+if (work)
 	nnoremap <leader>ev :vsplit D:\Projekte\koh_git\dot-files-vim\_vimrc<CR>  " open git VIMRC in vsplit
 	nnoremap <leader>sv :source D:\Projekte\koh_git\dot-files-vim\_vimrc<CR>  " source git VIMRC
 else
