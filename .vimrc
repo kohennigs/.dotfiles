@@ -2,7 +2,7 @@ if !exists("g:os")
     if has("win64") || has("win32") || has("win16")
         let g:os = "Windows"
     else
-    v    let g:os = substitute(system('uname'), '\n', '', '')
+        let g:os = substitute(system('uname'), '\n', '', '')
     endif
 endif
 "if g:os == "Darwin"
@@ -138,8 +138,7 @@ else
     if g:os == "Darwin"
             nnoremap <leader>sv :source /Users/$USER/koh-git/dotfiles/.vimrc <CR> 
             nnoremap <leader>ev :vsplit /Users/$USER/koh-git/dotfiles/.vimrc <CR> 
-    elseif 
-
+    else 
             nnoremap <leader>sv :source /home/$USER/koh-git/dotfiles/.vimrc <CR> 
             nnoremap <leader>ev :vsplit /home/$USER/koh-git/dotfiles/.vimrc <CR> 
     endif
