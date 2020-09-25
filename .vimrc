@@ -1,6 +1,20 @@
+if !exists("g:os")
+    if has("win64") || has("win32") || has("win16")
+        let g:os = "Windows"
+    else
+    v    let g:os = substitute(system('uname'), '\n', '', '')
+    endif
+endif
+"if g:os == "Darwin"
+ "       set guifont=Fira\ Mono:h12
+ "   elseif g:os == "Linux"
+ "       set guifont=Fira\ Mono\ 10
+ "   elseif g:os == "Windows"
+ "       set guifont=Fira_Mono:h12:cANSI
+ "   endif
 "------------------------------------------------------------------------
 " vim version check and message  
-"-et----------------------------------------------------------------------
+"-----------------------------------------------------------------------
 if has("gui_running")
   " Gvim
   echon "gVim"
@@ -73,6 +87,29 @@ filetype plugin on
 filetype indent on
 
 
+"------------------------------------------------------------------------
+" appearence 
+"------------------------------------------------------------------------
+"colorscheme gruvbox      " select color scheme
+se background=dark
+set number              " show line numbers
+set numberwidth=5
+""set relativenumber	    " show relative numbers
+set showcmd             " show command line 
+set cursorline
+
+set encoding=utf-8
+set tabstop=4
+set softtabstop=4
+set so=10                " set n lines the the cursoer j/k
+set expandtab
+set autochdir           " autochange dir to active files dir
+syntax enable           " enable syntax hl
+set ruler               " always show current position
+set laststatus=2        " alwys show the status line
+
+
+
 "--------------------------------------------------------------------
 " file search 
 "------------------------------------------------------------------------
@@ -97,12 +134,17 @@ if (work)
 	nnoremap <leader>ev :vsplit D:\Projekte\koh_git\dot-files-vim\_vimrc<CR>  " open git VIMRC in vsplit
 	nnoremap <leader>sv :source D:\Projekte\koh_git\dot-files-vim\_vimrc<CR>  " source git VIMRC
 else
-	" Terminal vim
-	nnoremap <leader>ev :vsplit /Users/koh/koh-git/dotfiles/.vimrc <CR> 
-	nnoremap <leader>sv :source /Users/koh/koh-git/dotfiles/.vimrc <CR> 
+	" Terminal vim on max home is /Users/$USER/
+    if g:os == "Darwin"
+            nnoremap <leader>sv :source /Users/$USER/koh-git/dotfiles/.vimrc <CR> 
+            nnoremap <leader>ev :vsplit /Users/$USER/koh-git/dotfiles/.vimrc <CR> 
+    elseif 
+
+            nnoremap <leader>sv :source /home/$USER/koh-git/dotfiles/.vimrc <CR> 
+            nnoremap <leader>ev :vsplit /home/$USER/koh-git/dotfiles/.vimrc <CR> 
+    endif
 endif
 
-"noremap <Space><Nop>
 nnoremap <leader>w :w!<CR> " fast saving active file
 nnoremap <leader>d ggdG<CR> " delete all
 nnoremap <leader>c ggVG"*y " copy all to sysClipBoard
@@ -144,3 +186,34 @@ nnoremap <C-H> <C-W><C-H>
 vnoremap < <gv
 vnoremap > >gv
 
+""------------------------------------------------------------------------
+" folding 
+"------------------------------------------------------------------------
+"enable folding 
+set foldmethod=syntax
+"set foldmethod=indent
+set foldlevel=99
+
+
+" --------------------------------------------------------------
+" netrw stettings
+" --------------------------------------------------------------
+let g:netrw_banner = 1
+let g:netrw_liststyle = 3
+let g:netrw_browse_split = 2
+let g:netrw_winsize = 30
+
+" Autostart netrw
+""augroup ProjectDrawer
+"  autocmd!
+"  autocmd VimEnter * :Vexplore
+"augroup END
+""------------------------------------------------------------------------
+" gvim Settings
+"------------------------------------------------------------------------
+"set guifont=Consolas:h10 " set gVim font and size
+set guioptions-=m  "remove menu bar
+set guioptions-=T  "remove toolbar
+set guioptions-=r  "remove right-hand scroll bar
+set guioptions-=L  "remove left-hand scroll bar
+"------------------------------------------------------------------------
