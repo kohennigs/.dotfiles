@@ -217,6 +217,24 @@ set guioptions-=L  "remove left-hand scroll bar
 "------------------------------------------------------------------------
 
 " --------------------------------------------------------------
+" Installation of plug.vim
+" --------------------------------------------------------------
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+"" man installation UNIX
+"curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+"    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+"
+"" man installation Windows Powershell
+"iwr -useb https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim |`
+"    ni $HOME/vimfiles/autoload/plug.vim -Force
+"
+
+" --------------------------------------------------------------
 " PlugIns
 " --------------------------------------------------------------
 call plug#begin($MYPLUGDIRECTORY)
