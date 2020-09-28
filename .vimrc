@@ -96,7 +96,7 @@ set number              " show line numbers
 set numberwidth=5
 ""set relativenumber	    " show relative numbers
 set showcmd             " show command line 
-set cursorline
+"set cursorline
 
 set encoding=utf-8
 set tabstop=4
@@ -107,7 +107,6 @@ set autochdir           " autochange dir to active files dir
 syntax enable           " enable syntax hl
 set ruler               " always show current position
 set laststatus=2        " alwys show the status line
-
 
 
 "--------------------------------------------------------------------
@@ -216,3 +215,30 @@ set guioptions-=T  "remove toolbar
 set guioptions-=r  "remove right-hand scroll bar
 set guioptions-=L  "remove left-hand scroll bar
 "------------------------------------------------------------------------
+
+" --------------------------------------------------------------
+" PlugIns
+" --------------------------------------------------------------
+call plug#begin($MYPLUGDIRECTORY)
+
+Plug 'vim-airline/vim-airline'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'morhetz/gruvbox'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+Plug 'mbbill/undotree'
+Plug 'vimwiki/vimwiki'
+
+
+"TESTING
+"Plug 'wellle/targets.vim'
+"Plug 'tpope/vim-obsession'
+"Plug 'tmhedberg/SimpylFold'
+"Plug 'Valloric/YouCompleteMe'
+"Plug 'sainnhe/vim-color-atlantis'
+"Plug 'chase/focuspoint-vim'
+"Plug 'neoclide/coc.vim',{'branch': 'release'}
+call plug#end()
