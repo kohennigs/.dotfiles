@@ -1,3 +1,15 @@
+"------------------------------------------------------------------------
+" task list 
+"-----------------------------------------------------------------------
+" TODO - check automate install on windows - untestet
+" TODO 
+"
+"
+"
+"------------------------------------------------------------------------
+" simplified os detection 
+"   it is a shared config over windows linux an mac
+"-----------------------------------------------------------------------
 if !exists("g:os")
     if has("win64") || has("win32") || has("win16")
         let g:os = "Windows"
@@ -5,13 +17,18 @@ if !exists("g:os")
         let g:os = substitute(system('uname'), '\n', '', '')
     endif
 endif
-"if g:os == "Darwin"
+
+"
+" example usage 
+ "if g:os == "Darwin"
  "       set guifont=Fira\ Mono:h12
  "   elseif g:os == "Linux"
  "       set guifont=Fira\ Mono\ 10
  "   elseif g:os == "Windows"
  "       set guifont=Fira_Mono:h12:cANSI
  "   endif
+
+ 
 "------------------------------------------------------------------------
 " vim version check and message  
 "-----------------------------------------------------------------------
@@ -90,8 +107,9 @@ filetype indent on
 "------------------------------------------------------------------------
 " appearence 
 "------------------------------------------------------------------------
+syntax enable           " enable syntax hl
 "colorscheme gruvbox      " select color scheme
-se background=dark
+"set background=dark
 set number              " show line numbers
 set numberwidth=5
 ""set relativenumber	    " show relative numbers
@@ -104,10 +122,10 @@ set softtabstop=4
 set so=10                " set n lines the the cursoer j/k
 set expandtab
 set autochdir           " autochange dir to active files dir
-syntax enable           " enable syntax hl
 set ruler               " always show current position
 set laststatus=2        " alwys show the status line
-
+set splitbelow
+set splitright
 
 "--------------------------------------------------------------------
 " file search 
@@ -117,9 +135,6 @@ set laststatus=2        " alwys show the status line
 set path+=**
 set wildmenu " display all matching files
 set wildmode=list:full
-
-set splitbelow
-set splitright
 
 "------------------------------------------------------------------------
 
@@ -219,10 +234,13 @@ set guioptions-=L  "remove left-hand scroll bar
 " --------------------------------------------------------------
 " Installation of plug.vim
 " --------------------------------------------------------------
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+" https://github.com/junegunn/vim-plug/wiki/tips#automatic-installation
+if g:os == "Linux" || g:os == "Darwin"
+        if empty(glob('~/.vim/autoload/plug.vim'))
+          silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+            \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+          autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+        endif
 endif
 
 "" man installation UNIX
@@ -244,7 +262,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'morhetz/gruvbox'
+"Plug 'morhetz/gruvbox'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'mbbill/undotree'
@@ -259,4 +277,6 @@ Plug 'vimwiki/vimwiki'
 "Plug 'sainnhe/vim-color-atlantis'
 "Plug 'chase/focuspoint-vim'
 "Plug 'neoclide/coc.vim',{'branch': 'release'}
+"
+"
 call plug#end()
