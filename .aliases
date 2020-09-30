@@ -1,7 +1,6 @@
-alias ll='ls -lisa --color=auto' 
+alias ll='ls -lisa' 
 alias la='ls -al'
 alias ..='cd ..'
-
 alias c='clear'
 
 alias please=sudo

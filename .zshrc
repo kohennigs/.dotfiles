@@ -68,7 +68,13 @@ autoload edit-command-line; zle -N edit-command-line
 bindkey '^e' edit-command-line
 
 # Load aliases and shortcuts if existent.
-[ -f "~/koh-git/dotfiles/.aliases" ] && source "~/koh-git/dotfiles/.aliases"
+if [ -f ~/koh-git/dotfiles/.aliases ]; then
+ source ~/koh-git/dotfiles/.aliases
+else
+    print "Error 404 : .aliases not found"
+fi
 
 # Load zsh-syntax-highlighting; should be last.
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
