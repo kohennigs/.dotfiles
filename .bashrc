@@ -1,3 +1,8 @@
+#create / reattach screen session if possible
+if [[ -z "$STY" ]]; then
+   screen -xRR default
+fi
+
 #Veränderter Prompt mit [Tag:Stunde'h'Minute]user@host:verzeichnis $
 # Last command successfull > normal prompt else ugly color!
 PROMPT_COMMAND='if [ $? = 0 ]; then
