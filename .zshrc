@@ -1,3 +1,8 @@
+#create / reattach screen session if possible
+if [[ -z "$STY" ]]; then
+   screen -xRR default
+fi
+
 #
 #based on 
 # Luke's config for the Zoomer Shell
