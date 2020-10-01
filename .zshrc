@@ -1,8 +1,4 @@
-#create / reattach screen session if possible
-if [[ -z "$STY" ]]; then
-   screen -xRR default
-fi
-
+#
 #based on 
 # Luke's config for the Zoomer Shell
 #  https://gist.github.com/LukeSmithxyz
@@ -81,4 +77,8 @@ fi
 # Load zsh-syntax-highlighting; should be last.
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
 
+# enable fzf fuzzy finder if exists
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# enable autosuggestions when exists
+[ -f ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh ] && source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
