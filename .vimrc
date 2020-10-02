@@ -165,6 +165,7 @@ nnoremap <leader>p "*p " paste from  sysClipBoard
 nnoremap <leader>r :w<CR> :! %<CR> " save and RUN
 nnoremap <leader>= gg=G'' " reindent the whole file
 nnoremap <leader>tsd :put=strftime('%Y%m%d')<CR> " instert timestamp date YYYYMMDD
+nnoremap <silent> <Esc><Esc> <Esc>:nohlsearch<CR><Esc> " Esc Esc = :noh
 
 " fzf git tracked files
 nmap <Leader>f :GFiles<CR> 
