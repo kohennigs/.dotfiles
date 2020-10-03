@@ -167,10 +167,24 @@ nnoremap <leader>= gg=G'' " reindent the whole file
 nnoremap <leader>tsd :put=strftime('%Y%m%d')<CR> " instert timestamp date YYYYMMDD
 nnoremap <silent> <Esc><Esc> <Esc>:nohlsearch<CR><Esc> " Esc Esc = :noh
 
-" fzf git tracked files
+" fzf mappings 
+"
+" git tracked files
 nmap <Leader>f :GFiles<CR> 
-" fzf file
+" find all files
 nmap <Leader>F :Files<CR> 
+" find bufferers
+nmap <Leader>b :Buffers<CR>
+" find in history
+nmap <Leader>h :History<CR>
+" find in current buffer
+nmap <Leader>l :BLines<CR>
+" find in all open buffers
+nmap <Leader>L :Lines<CR>
+" find in marks
+nmap <Leader>' :Makrs<CR>
+" find in vim s help
+nmap <Leader>H :Helptags!<CR>
 
 map <F2> :mksession! $SESSIONHOME\autosave.vim <cr> " Quick write session with F2
 map <F3> :source $SESSIONHOME\autosave.vim <cr>     " And load session with F3
@@ -268,7 +282,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'mbbill/undotree'
 Plug 'vimwiki/vimwiki'
-
+Plug 'mhinz/vim-startify'
 
 "TESTING
 "Plug 'wellle/targets.vim'
