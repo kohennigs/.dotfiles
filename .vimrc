@@ -1,10 +1,7 @@
 "------------------------------------------------------------------------
 " task list 
 "-----------------------------------------------------------------------
-" TODO - check automate install on windows - untestet
-" TODO 
-"
-"
+" . Red BGG Color in Wiki ? Theme?
 "
 "------------------------------------------------------------------------
 " simplified os detection 
@@ -34,33 +31,33 @@ endif
 "-----------------------------------------------------------------------
 if has("gui_running")
   " Gvim
-  echon "gVim"
+  " echon "gVim"
   if has("gui_gtk2") || has("gui_gtk3")
 	" Linux GUI
-	echo " Linux GUI"
+"	echo " Linux GUI"
   elseif has("gui_win32")
 	    " Win32/64 GVim
-	echon "Windows GUI
+"	echon "Windows GUI
   elseif has("gui_macvim")
     " MacVim
-    echon " MacVim" 
+"    echon " MacVim" 
   else
-    echo "Unknown GUI system!!!!"
+"    echo "Unknown GUI system!!!!"
   endif
 else
   " Terminal vim
-  echon "Terminal vim"
+"  echon "Terminal vim"
   let $MYPLUGDIRECTORY = "~/.vim/plugged"
   let $SESSIONHOME = "~/.vim/vim_sessions"
 endif
 
-echon " :: " 
+"echon " :: " 
 
 "------------------------------------------------------------------------
 " @work specific pathes
 "------------------------------------------------------------------------
-if (work)
-	echo "bcs config"
+if (work == 1)
+	"echo "bcs config"
 	let $VIMHOME='D:\\prog\Vim\'
 	let $MYPLUGDIRECTORY = "D:\\prog\\Vim\\plugged"
 	let $SESSIONHOME = 'D:\\vim_sessions'
@@ -69,7 +66,7 @@ if (work)
 	" vimwiki, used at work only
 	let g:vimwiki_list = [{'path':'D:\\Projekte\\_wiki\\', 'path_html':'D:\\Projekte\\_wiki\\'}]
 else 
-	echon "normal config"
+	"echon "normal config"
 endif
 
 
@@ -145,8 +142,8 @@ set wildmode=list:full
 let mapleader = " "
 
 if (work)
-	nnoremap <leader>ev :vsplit D:\Projekte\koh_git\dot-files-vim\_vimrc<CR>  " open git VIMRC in vsplit
-	nnoremap <leader>sv :source D:\Projekte\koh_git\dot-files-vim\_vimrc<CR>  " source git VIMRC
+	nnoremap <leader>ev :vsplit D:\Projekte\koh_git\dotfiles\.vimrc<CR>  " open git VIMRC in vsplit
+	nnoremap <leader>sv :source D:\Projekte\koh_git\dotfiles\.vimrc<CR>  " source git VIMRC
 else
 	" Terminal vim on max home is /Users/$USER/
     if g:os == "Darwin"
