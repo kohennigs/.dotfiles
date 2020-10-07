@@ -118,7 +118,7 @@ set tabstop=4
 set softtabstop=4
 set so=10                " set n lines the the cursoer j/k
 set expandtab
-set autochdir           " autochange dir to active files dir
+"set autochdir           " autochange dir to active files dir
 set ruler               " always show current position
 set laststatus=2        " alwys show the status line
 set splitbelow
