@@ -5,6 +5,21 @@ alias c='clear'
 
 alias please=sudo
 
+# git aliases 
+alias gs='git status'
+alias gp='git push'
+alias gd='git diff'
+alias gc='git commit -m'
+alias ga='git add'
+
+# Pretty log messages
+function _git_log_prettily(){
+  if ! [ -z $1 ]; then
+    git log --pretty=$1
+  fi
+}
+alias gl="_git_log_prettily"
+
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
@@ -16,3 +31,4 @@ if [ -x /usr/bin/dircolors ]; then
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
 fi
+
