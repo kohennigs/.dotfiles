@@ -111,7 +111,12 @@ set number              " show line numbers
 set numberwidth=5
 ""set relativenumber	    " show relative numbers
 set showcmd             " show command line 
-"set cursorline
+
+"cursorline settings
+set cursorline
+highlight CursorLine guifg=white guibg=blue ctermfg=white ctermbg=blue
+autocmd InsertEnter * highlight CursorLine guifg=white guibg=blue ctermfg=white ctermbg=blue
+autocmd InsertLeave * highlight CursorLine guifg=white guibg=darkblue ctermfg=white ctermbg=darkblue
 
 set encoding=utf-8
 set tabstop=4
@@ -291,4 +296,13 @@ Plug 'mhinz/vim-startify'
 "Plug 'neoclide/coc.vim',{'branch': 'release'}
 "
 "
+
 call plug#end()
+
+
+" --------------------------------------------------------------
+" startify configuration
+" --------------------------------------------------------------
+let g:startify_session_dir= 'D:\\vim_sessions'
+
+
