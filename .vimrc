@@ -169,6 +169,10 @@ nnoremap <leader>= gg=G'' " reindent the whole file
 nnoremap <leader>tsd :put=strftime('%Y%m%d')<CR> " instert timestamp date YYYYMMDD
 nnoremap <silent> <Esc><Esc> <Esc>:nohlsearch<CR><Esc> " Esc Esc = :noh
 
+" The Primeagens greates remap ever 
+vnoremap <leader>p "_dp  " in visual mode replace current selection using black hole reg)
+
+
 " fzf mappings 
 "
 " git tracked files
@@ -304,5 +308,27 @@ call plug#end()
 " startify configuration
 " --------------------------------------------------------------
 let g:startify_session_dir= 'D:\\vim_sessions'
+
+let g:startify_custom_footer =
+           \ ['', "   Vim is charityware. Please read ':help uganda'.", '']
+
+let g:startify_skiplist = [
+                        \ '*.git',
+                        \ expand($VIMRUNTIME) . '/doc',
+                        \ '.vimrc',
+                       \ '_wiki\.*'
+                        \ ]
+" Startify Colors
+    hi StartifyBracket ctermfg=148
+    hi StartifyFile    ctermfg=147
+    hi StartifyFooter  ctermfg=240
+    hi StartifyHeader  ctermfg=114
+    hi StartifyNumber  ctermfg=215
+    hi StartifyPath    ctermfg=245
+    hi StartifySlash   ctermfg=245
+    hi StartifySpecial ctermfg=240
+
+
+
 
 
