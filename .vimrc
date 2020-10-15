@@ -63,8 +63,16 @@ if (work == 1)
 	let $SESSIONHOME = 'D:\\vim_sessions'
 	let $PYTHONHOME = 'D:\\Programme\\Python37'
 	
-	" vimwiki, used at work only
-	let g:vimwiki_list = [{'path':'D:\\Projekte\\_wiki\\', 'path_html':'D:\\Projekte\\_wiki\\'}]
+    " --------------------------------------------------------------
+    " vimwiki configuration
+    " --------------------------------------------------------------
+    " vimwiki, used at work only
+    let g:vimwiki_list = [{
+                    \ 'path'        : 'D:\\Projekte\\_wiki\\',
+                    \ 'path_html'   : 'D:\\Projekte\\_wiki\\',
+                    \ 'auto_toc'    : 1
+                    \}]
+    let g:vimwiki_toc_header = 'Inhalt'
 else 
 	"echon "normal config"
 endif
@@ -653,6 +661,8 @@ Plug 'mhinz/vim-startify'
 call plug#end()
 
 
+
+
 " --------------------------------------------------------------
 " startify configuration
 " --------------------------------------------------------------
@@ -678,4 +688,4 @@ let g:startify_skiplist = [
     hi StartifySpecial ctermfg=240
 
 
-let g:vimwiki_folding = 'custom'
+
