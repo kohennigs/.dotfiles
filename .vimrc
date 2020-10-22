@@ -62,7 +62,8 @@ if (work == 1)
 	let $MYPLUGDIRECTORY = "D:\\prog\\Vim\\plugged"
 	let $SESSIONHOME = 'D:\\vim_sessions'
 	let $PYTHONHOME = 'D:\\Programme\\Python37'
-	
+    let $HOME = $USERPROFILE
+     
     " --------------------------------------------------------------
     " vimwiki configuration
     " --------------------------------------------------------------
@@ -130,14 +131,11 @@ set showcmd             " show command line
 " src: 
 "  https://stackoverflow.com/questions/7614546/vim-cursorline-color-change-in-insert-mode
 set cursorline
-highlight CursorLine guifg=white guibg=lightgrey ctermfg=white ctermbg=136
-autocmd InsertEnter * highlight CursorLine guifg=white guibg=blue ctermfg=white ctermbg=blue
-autocmd InsertLeave * highlight CursorLine guifg=white guibg=darkblue ctermfg=white ctermbg=136
 
 " blue setup
-" highlight CursorLine guifg=white guibg=blue ctermfg=white ctermbg=blue  "nice blue CursorLine
-"autocmd InsertEnter * highlight CursorLine guifg=white guibg=blue ctermfg=white ctermbg=blue
-"autocmd InsertLeave * highlight CursorLine guifg=white guibg=darkblue ctermfg=white ctermbg=darkblue
+highlight CursorLine guifg=white guibg=blue ctermfg=white ctermbg=blue  "nice blue CursorLine
+autocmd InsertEnter * highlight CursorLine guifg=white guibg=blue ctermfg=white ctermbg=blue
+autocmd InsertLeave * highlight CursorLine guifg=white guibg=darkblue ctermfg=white ctermbg=darkblue
 
 " underline settings ( ..viwiki)
 "
@@ -319,7 +317,7 @@ Plug 'mhinz/vim-startify'
 
 "TESTING
 "Plug 'wellle/targets.vim'
-"Plug 'tpope/vim-obsession'
+Plug 'tpope/vim-obsession'
 "Plug 'tmhedberg/SimpylFold'
 "Plug 'Valloric/YouCompleteMe'
 "Plug 'sainnhe/vim-color-atlantis'
