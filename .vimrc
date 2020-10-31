@@ -317,7 +317,9 @@ Plug 'tpope/vim-surround'
 Plug 'mbbill/undotree'
 Plug 'vimwiki/vimwiki'
 Plug 'mhinz/vim-startify'
+Plug 'machakann/vim-highlightedyank'
 
+"
 "TESTING
 "Plug 'wellle/targets.vim'
 Plug 'tpope/vim-obsession'
@@ -332,6 +334,16 @@ Plug 'tpope/vim-obsession'
 call plug#end()
 
 
+" --------------------------------------------------------------
+" vim-highlightedyank  configuration
+" --------------------------------------------------------------
+
+let g:highlightedyank_highlight_duration = 150
+
+" --------------------------------------------------------------
+
+
+let g:startify_session_dir= 'D:\\vim_sessions'
 " --------------------------------------------------------------
 " startify configuration
 " --------------------------------------------------------------
@@ -356,3 +368,4 @@ let g:startify_skiplist = [
     hi StartifySlash   ctermfg=245
     hi StartifySpecial ctermfg=240
 
+" --------------------------------------------------------------
