@@ -178,13 +178,13 @@ if (work)
 	nnoremap <leader>ev :vsplit D:\Projekte\koh_git\dotfiles\.vimrc<CR>  " open git VIMRC in vsplit
 	nnoremap <leader>sv :source D:\Projekte\koh_git\dotfiles\.vimrc<CR>  " source git VIMRC
 else
-	" Terminal vim on max home is /Users/$USER/
+	" Terminal vim on MacOs
     if g:os == "Darwin"
-            nnoremap <leader>sv :source /Users/$USER/koh-git/dotfiles/.vimrc <CR> 
-            nnoremap <leader>ev :vsplit /Users/$USER/koh-git/dotfiles/.vimrc <CR> 
+            nnoremap <leader>sv :source ~/koh-git/dotfiles/.vimrc <CR> 
+            nnoremap <leader>ev :vsplit ~/koh-git/dotfiles/.vimrc <CR> 
     else 
-            nnoremap <leader>sv :source /home/$USER/koh-git/dotfiles/.vimrc <CR> 
-            nnoremap <leader>ev :vsplit /home/$USER/koh-git/dotfiles/.vimrc <CR> 
+            nnoremap <leader>sv :source ~/koh-git/dotfiles/.vimrc <CR> 
+            nnoremap <leader>ev :vsplit ~/koh-git/dotfiles/.vimrc <CR> 
     endif
 endif
 
