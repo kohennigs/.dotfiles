@@ -200,6 +200,8 @@ nnoremap <silent> <Esc><Esc> <Esc>:nohlsearch<CR><Esc> " Esc Esc = :noh
 " The Primeagens greates remap ever 
 vnoremap <leader>p "_dp  " in visual mode replace current selection using black hole reg)
 
+" close tag in instert mode 
+imap ,/ </<C-X><C-O><Esc>F<i 
 
 " fzf mappings 
 "
