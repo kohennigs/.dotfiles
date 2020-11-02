@@ -281,14 +281,14 @@ set guioptions-=T  "remove toolbar
 set guioptions-=r  "remove right-hand scroll bar
 set guioptions-=L  "remove left-hand scroll bar
 
-" fullscreen under windows 10
-" https://vi.stackexchange.com/questions/1937/how-do-i-get-gvim-to-start-maximised-in-windows
-
-"run the command immediately when starting vim
-"autocmd VimEnter * call libcallnr("gvimfullscreen.dll", "ToggleFullScreen", 0)
-
-" activate/deactivate full screen with function key <F11>  
-map <F11> <Esc>:call libcallnr("gvimfullscreen.dll", "ToggleFullScreen", 0)<CR>
+" fullscreen under windows
+" https://vi.stackexchange.com/questions/1937/how-do-i-get-gvim-to-start-maximised-in-windows 
+if g:os == "Windows"
+  "run the command immediately when starting vim
+  "autocmd VimEnter * call libcallnr("gvimfullscreen.dll", "ToggleFullScreen", 0)
+  " activate/deactivate full screen with function key <F11>  
+  map <F11> <Esc>:call libcallnr("gvimfullscreen.dll", "ToggleFullScreen", 0)<CR>
+endif
 
 "------------------------------------------------------------------------
 
