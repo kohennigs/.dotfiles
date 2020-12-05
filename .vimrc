@@ -15,15 +15,14 @@ if !exists("g:os")
     endif
 endif
 
-"
 " example usage 
- "if g:os == "Darwin"
- "       set guifont=Fira\ Mono:h12
- "   elseif g:os == "Linux"
- "       set guifont=Fira\ Mono\ 10
- "   elseif g:os == "Windows"
- "       set guifont=Fira_Mono:h12:cANSI
- "   endif
+"if g:os == "Darwin"
+"       set guifont=Fira\ Mono:h12
+"   elseif g:os == "Linux"
+"       set guifont=Fira\ Mono\ 10
+"   elseif g:os == "Windows"
+"       set guifont=Fira_Mono:h12:cANSI
+"   endif
 
  
 "------------------------------------------------------------------------
@@ -37,7 +36,7 @@ if has("gui_running")
 "	echo " Linux GUI"
   elseif has("gui_win32")
 	    " Win32/64 GVim
-"	echon "Windows GUI
+        "	echon "Windows GUI
   elseif has("gui_macvim")
     " MacVim
 "    echon " MacVim" 
@@ -49,6 +48,7 @@ else
 "  echon "Terminal vim"
   let $MYPLUGDIRECTORY = "~/.vim/plugged"
   let $SESSIONHOME = "~/.vim/vim_sessions"
+  let g:startify_session_dir= 'D:\\vim_sessions'
 endif
 
 "echon " :: " 
@@ -63,7 +63,7 @@ if (work == 1)
 	let $SESSIONHOME = 'D:\\vim_sessions'
 	let $PYTHONHOME = 'D:\\Programme\\Python37'
     let $HOME = $USERPROFILE
-     
+    let g:startify_session_dir= 'D:\\vim_sessions'
     " --------------------------------------------------------------
     " vimwiki configuration
     " --------------------------------------------------------------
@@ -108,41 +108,34 @@ set showcmd             " show command line
 filetype plugin on
 filetype indent on
 
-
 "------------------------------------------------------------------------
 " appearence 
 "------------------------------------------------------------------------
 syntax enable           " enable syntax hl
-
 "colorscheme gruvbox      " select color scheme
-set background=dark
-colorscheme wombat      " select color scheme
-
-set number              " show line numbers
+"set relativenumber	    " show relative numbers
 set numberwidth=5
-""set relativenumber	    " show relative numbers
+set number              " show line numbers
 set showcmd             " show command line 
-
-set number              " show line numbers
-set numberwidth=5
-""set relativenumber	    " show relative numbers
+"
 "Linenumbers
-hi CursorLineNr ctermbg=black  " keep Linenumber BG-Color Black
-
-"set colorcolumn=80
-"highlight ColorColumn ctermbg=0 guibg=lightgrey
-
-"cursorline settings
-" src: 
-"  https://stackoverflow.com/questions/7614546/vim-cursorline-color-change-in-insert-mode
+hi CursorLineNr ctermbg=black  
+"" keep Linenumber BG-Color Black
+"
+set colorcolumn=80
+highlight ColorColumn ctermbg=0 guibg=black
+"
+""cursorline settings
+"" src: 
+""  https://stackoverflow.com/questions/7614546/vim-cursorline-color-change-in-insert-mode
 set cursorline
-
-" CursorLine blue 
-"highlight CursorLine guifg=white guibg=blue ctermfg=white ctermbg=blue  "nice blue CursorLine
-"autocmd InsertEnter * highlight CursorLine guifg=white guibg=blue ctermfg=white ctermbg=blue
-"autocmd InsertLeave * highlight CursorLine guifg=white guibg=darkblue ctermfg=white ctermbg=darkblue
-
-" underline settings ( ..viwiki)
+"
+"" CursorLine blue 
+""highlight CursorLine guifg=white guibg=blue ctermfg=white ctermbg=blue  "nice blue CursorLine
+""autocmd InsertEnter * highlight CursorLine guifg=white guibg=blue ctermfg=white ctermbg=blue
+""autocmd InsertLeave * highlight CursorLine guifg=white guibg=darkblue ctermfg=white ctermbg=darkblue
+"
+"" underline settings ( ..viwiki)
 hi UnderLined ctermfg=black ctermfg=white
 
 set encoding=utf-8
@@ -178,14 +171,8 @@ if (work)
 	nnoremap <leader>ev :vsplit D:\Projekte\koh_git\dotfiles\.vimrc<CR>  " open git VIMRC in vsplit
 	nnoremap <leader>sv :source D:\Projekte\koh_git\dotfiles\.vimrc<CR>  " source git VIMRC
 else
-	" Terminal vim on MacOs
-    if g:os == "Darwin"
-            nnoremap <leader>sv :source ~/koh-git/dotfiles/.vimrc <CR> 
-            nnoremap <leader>ev :vsplit ~/koh-git/dotfiles/.vimrc <CR> 
-    else 
-            nnoremap <leader>sv :source ~/koh-git/dotfiles/.vimrc <CR> 
-            nnoremap <leader>ev :vsplit ~/koh-git/dotfiles/.vimrc <CR> 
-    endif
+    nnoremap <leader>sv :source ~/koh-git/dotfiles/.vimrc <CR> 
+    nnoremap <leader>ev :vsplit ~/koh-git/dotfiles/.vimrc <CR> 
 endif
 
 nnoremap <leader>w :w!<CR> " fast saving active file
@@ -323,42 +310,33 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-"Plug 'morhetz/gruvbox'
+Plug 'morhetz/gruvbox'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'mbbill/undotree'
 Plug 'vimwiki/vimwiki'
 Plug 'mhinz/vim-startify'
-Plug 'machakann/vim-highlightedyank'
+"Plug 'machakann/vim-highlightedyank'
 
 "
 "TESTING
 "Plug 'wellle/targets.vim'
-Plug 'tpope/vim-obsession'
+"Plug 'tpope/vim-obsession'
 "Plug 'tmhedberg/SimpylFold'
 "Plug 'Valloric/YouCompleteMe'
 "Plug 'sainnhe/vim-color-atlantis'
 "Plug 'chase/focuspoint-vim'
 "Plug 'neoclide/coc.vim',{'branch': 'release'}
-"
-"
-
 call plug#end()
 
 " --------------------------------------------------------------
 " vim-highlightedyank  configuration
 " --------------------------------------------------------------
+"let g:highlightedyank_highlight_duration = 150
 
-let g:highlightedyank_highlight_duration = 150
-
-" --------------------------------------------------------------
-
-
-let g:startify_session_dir= 'D:\\vim_sessions'
 " --------------------------------------------------------------
 " startify configuration
 " --------------------------------------------------------------
-let g:startify_session_dir= 'D:\\vim_sessions'
 
 let g:startify_custom_footer =
            \ ['', "   Vim is charityware. Please read ':help uganda'.", '']
