@@ -25,39 +25,38 @@ endif
 "   endif
 
  
-"------------------------------------------------------------------------
+"-----------------------------------------------------------------------
 " vim version check and message  
 "-----------------------------------------------------------------------
 if has("gui_running")
   " Gvim
-  " echon "gVim"
+   echon "gVim"
   if has("gui_gtk2") || has("gui_gtk3")
 	" Linux GUI
-"	echo " Linux GUI"
+	echo " Linux GUI"
   elseif has("gui_win32")
 	    " Win32/64 GVim
-        "	echon "Windows GUI
+        	echon "Windows GUI
   elseif has("gui_macvim")
     " MacVim
-"    echon " MacVim" 
+    echon " MacVim" 
   else
-"    echo "Unknown GUI system!!!!"
+    echo "Unknown GUI system!!!!"
   endif
 else
   " Terminal vim
-"  echon "Terminal vim"
+  echon "Terminal vim"
   let $MYPLUGDIRECTORY = "~/.vim/plugged"
   let $SESSIONHOME = "~/.vim/vim_sessions"
   let g:startify_session_dir= 'D:\\vim_sessions'
 endif
 
-"echon " :: " 
 
 "------------------------------------------------------------------------
 " @work specific pathes
 "------------------------------------------------------------------------
 if (work == 1)
-	"echo "bcs config"
+	echo "bcs config"
 	let $VIMHOME='D:\\prog\Vim\'
 	let $MYPLUGDIRECTORY = "D:\\prog\\Vim\\plugged"
 	let $SESSIONHOME = 'D:\\vim_sessions'
@@ -75,7 +74,24 @@ if (work == 1)
                     \}]
     let g:vimwiki_toc_header = 'Inhalt'
 else 
-	"echon "normal config"
+	echon "normal config"
+    "let $HOME = $USERPROFILE
+	let $VIMHOME='$HOME/.vim/'
+	let $MYPLUGDIRECTORY = "$HOME/.vim/plugged/"
+	let $SESSIONHOME = '$HOME/.vim/vim_sessions'
+	let undodir= '$HOME/.vim/undo/'
+	"let $PYTHONHOME = 'D:\\Programme\\Python37'
+    let g:startify_session_dir= $SESSIONHOME
+    " --------------------------------------------------------------
+    " vimwiki configuration
+    " --------------------------------------------------------------
+    " vimwiki, used at work only
+    let g:vimwiki_list = [{
+                    \ 'path'        : '$HOME/.vim/vimwiki',
+                    \ 'path_html'   : '$HOME/.vom/vimwiki',
+                    \ 'auto_toc'    : 1
+                    \}]
+    let g:vimwiki_toc_header = 'Inhalt'
 endif
 
 
@@ -92,7 +108,9 @@ set smartcase
 set hlsearch    " highlight all matches
 set nobackup    " dont create backup file
 set noswapfile  " dont create swap file
-set noundofile  " dont create undo file
+"set noundofile  " dont create undo file
+set undofile
+set undolevels=1000
 set autowrite   " autosave buf while editing (unchecked)
 set autoread    " autread extern changed files
 set magic       " enable regex (magic)+
@@ -262,7 +280,7 @@ let g:netrw_winsize = 30
 ""------------------------------------------------------------------------
 " gvim Settings
 "------------------------------------------------------------------------
-set guifont=Consolas:h10 " set gVim font and size
+"set guifont=Consolas:h10
 set guioptions-=m  "remove menu bar
 set guioptions-=T  "remove toolbar
 set guioptions-=r  "remove right-hand scroll bar
@@ -316,6 +334,7 @@ Plug 'tpope/vim-surround'
 Plug 'mbbill/undotree'
 Plug 'vimwiki/vimwiki'
 Plug 'mhinz/vim-startify'
+Plug 'johngrib/vim-game-snake'
 "Plug 'machakann/vim-highlightedyank'
 
 "
