@@ -1,2 +1,1 @@
-screen -X caption always "%{rw} * | %H * $LOGNAME | %{bw}%c %D |
-%{-}%-Lw%{rw}%50>%{rW}%n%f* %t %{-}%+Lw%<"
+screen -X caption always "%{rw} * | %H * $LOGNAME | %{bw}%c %D | %{-}%-Lw%{rw}%50>%{rW}%n%f* %t %{-}%+Lw%<"
