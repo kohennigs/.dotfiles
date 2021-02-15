@@ -1,8 +1,7 @@
 "------------------------------------------------------------------------
 " task list 
 "-----------------------------------------------------------------------
-" . Red BGG Color in Wiki ? Theme?
-"
+" Red BGG Color in Wiki ? Theme?
 "------------------------------------------------------------------------
 " simplified os detection 
 "   it is a shared config over windows linux an mac
