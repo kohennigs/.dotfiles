@@ -36,7 +36,7 @@ if has("gui_running")
 	echo " Linux GUI"
   elseif has("gui_win32")
 	    " Win32/64 GVim
-        	echon "Windows GUI
+        	echon "Windows GUI"
   elseif has("gui_macvim")
     " MacVim
     echon " MacVim" 
@@ -48,7 +48,7 @@ else
   echon "Terminal vim"
   let $MYPLUGDIRECTORY = "~/.vim/plugged"
   let $SESSIONHOME = "~/.vim/vim_sessions"
-  let g:startify_session_dir= 'D:\\vim_sessions'
+  let g:startify_session_dir= "D:\\vim_sessions"
 endif
 
 
@@ -56,13 +56,14 @@ endif
 " @work specific pathes
 "------------------------------------------------------------------------
 if (work == 1)
-	echo "bcs config"
-	let $VIMHOME='D:\\prog\Vim\'
+	"echo "bcs config"
+	let $VIMHOME="D:\\prog\\Vim"
+	set undodir=$VIMHOME\\undofiles
 	let $MYPLUGDIRECTORY = "D:\\prog\\Vim\\plugged"
-	let $SESSIONHOME = 'D:\\vim_sessions'
-	let $PYTHONHOME = 'D:\\Programme\\Python37'
+	let $SESSIONHOME = "D:\\vim_sessions"
+	let $PYTHONHOME = "D:\\Programme\\Python37"
     let $HOME = $USERPROFILE
-    let g:startify_session_dir= 'D:\\vim_sessions'
+    let g:startify_session_dir= "D:\\vim_sessions"
     " --------------------------------------------------------------
     " vimwiki configuration
     " --------------------------------------------------------------
@@ -74,12 +75,12 @@ if (work == 1)
                     \}]
     let g:vimwiki_toc_header = 'Inhalt'
 else 
-	echon "normal config"
+	"echon "normal config"
     "let $HOME = $USERPROFILE
 	let $VIMHOME='$HOME/.vim/'
 	let $MYPLUGDIRECTORY = "$HOME/.vim/plugged/"
 	let $SESSIONHOME = '$HOME/.vim/vim_sessions'
-	let undodir= '$HOME/.vim/undo/'
+	set undodir= '$HOME/.vim/undo/'
 	"let $PYTHONHOME = 'D:\\Programme\\Python37'
     let g:startify_session_dir= $SESSIONHOME
     " --------------------------------------------------------------
@@ -146,10 +147,10 @@ highlight ColorColumn ctermbg=0 guibg=black
 ""cursorline settings
 "" src: 
 ""  https://stackoverflow.com/questions/7614546/vim-cursorline-color-change-in-insert-mode
-set cursorline
+"set cursorline
 "
 "" CursorLine blue 
-""highlight CursorLine guifg=white guibg=blue ctermfg=white ctermbg=blue  "nice blue CursorLine
+highlight CursorLine guifg=white guibg=blue ctermfg=white ctermbg=blue  "nice blue CursorLine
 ""autocmd InsertEnter * highlight CursorLine guifg=white guibg=blue ctermfg=white ctermbg=blue
 ""autocmd InsertLeave * highlight CursorLine guifg=white guibg=darkblue ctermfg=white ctermbg=darkblue
 "
@@ -200,9 +201,24 @@ nnoremap <leader>p "*p " paste from  sysClipBoard
 nnoremap <leader>r :w<CR> :! %<CR> " save and RUN
 nnoremap <leader>= gg=G'' " reindent the whole file
 nnoremap <leader>tsd :put=strftime('%Y%m%d')<CR> " instert timestamp date YYYYMMDD
-nnoremap <silent> <Esc><Esc> <Esc>:nohlsearch<CR><Esc> " Esc Esc = :noh
+nnoremap <silent> <Esc><Esc> <Esc>:nohlsearch<CR><Esc> " Leave HLSearch
+nnoremap <leader>sw :mks! D:\vim_sessions\autosave.vim<CR> " save sess to autsave
+nnoremap <leader>sr :so D:\vim_sessions\autosave.vim<CR> " load sess from autsave
+"TODO create mac/linux version of saveing session
+"
+set foldlevel=1
+nmap <leader>f0 :set foldlevel=0<CR>
+nmap <leader>f1 :set foldlevel=1<CR>
+nmap <leader>f2 :set foldlevel=2<CR>
+nmap <leader>f3 :set foldlevel=3<CR>
+nmap <leader>f4 :set foldlevel=4<CR>
+nmap <leader>f5 :set foldlevel=5<CR>
+nmap <leader>f6 :set foldlevel=6<CR>
+nmap <leader>f7 :set foldlevel=7<CR>
+nmap <leader>f8 :set foldlevel=8<CR>
+nmap <leader>f9 :set foldlevel=9<CR>
 
-" The Primeagens greates remap ever 
+" The vrimeagens greates remap ever 
 vnoremap <leader>p "_dp  " in visual mode replace current selection using black hole reg)
 
 " close tag in instert mode 
@@ -324,6 +340,7 @@ endif
 call plug#begin($MYPLUGDIRECTORY)
 
 Plug 'vim-airline/vim-airline'
+Plug 'lervag/vimtex'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'vim-airline/vim-airline'
@@ -333,7 +350,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'mbbill/undotree'
 Plug 'vimwiki/vimwiki'
-Plug 'mhinz/vim-startify'
+"Plug 'mhinz/vim-startify'
 Plug 'johngrib/vim-game-snake'
 "Plug 'machakann/vim-highlightedyank'
 
