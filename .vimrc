@@ -79,7 +79,7 @@ else
 	let $VIMHOME='$HOME/.vim/'
 	let $MYPLUGDIRECTORY = "$HOME/.vim/plugged/"
 	let $SESSIONHOME = '$HOME/.vim/vim_sessions'
-	set undodir= '$HOME/.vim/undo/'
+	set undodir='$HOME/.vim/undo/'
 	"let $PYTHONHOME = 'D:\\Programme\\Python37'
     let g:startify_session_dir= $SESSIONHOME
     " --------------------------------------------------------------
@@ -344,6 +344,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'psliwka/vim-smoothie'
 Plug 'morhetz/gruvbox'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
