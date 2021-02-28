@@ -131,6 +131,10 @@ filetype indent on
 "------------------------------------------------------------------------
 syntax enable           " enable syntax hl
 "colorscheme gruvbox      " select color scheme
+set background=dark
+let g:solarized_termcolors=256
+colorscheme solarized
+
 "set relativenumber	    " show relative numbers
 set numberwidth=5
 set number              " show line numbers
@@ -140,8 +144,8 @@ set showcmd             " show command line
 hi CursorLineNr ctermbg=black  
 "" keep Linenumber BG-Color Black
 "
-set colorcolumn=80
-highlight ColorColumn ctermbg=0 guibg=black
+"set colorcolumn=80
+"highlight ColorColumn ctermbg=0 guibg=black
 "
 ""cursorline settings
 "" src: 
@@ -353,7 +357,7 @@ Plug 'vimwiki/vimwiki'
 "Plug 'mhinz/vim-startify'
 Plug 'johngrib/vim-game-snake'
 "Plug 'machakann/vim-highlightedyank'
-
+Plug 'altercation/vim-colors-solarized'
 "
 "TESTING
 "Plug 'wellle/targets.vim'
