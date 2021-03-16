@@ -29,22 +29,22 @@ endif
 "-----------------------------------------------------------------------
 if has("gui_running")
   " Gvim
-   echon "gVim"
+   "echon "gVim"
   if has("gui_gtk2") || has("gui_gtk3")
 	" Linux GUI
 	echo " Linux GUI"
   elseif has("gui_win32")
 	    " Win32/64 GVim
-        	echon "Windows GUI"
+        	"echon "Windows GUI"
   elseif has("gui_macvim")
     " MacVim
-    echon " MacVim" 
+    "echon " MacVim" 
   else
-    echo "Unknown GUI system!!!!"
+    "echo "Unknown GUI system!!!!"
   endif
 else
   " Terminal vim
-  echon "Terminal vim"
+  "echon "Terminal vim"
   let $MYPLUGDIRECTORY = "~/.vim/plugged"
   let $SESSIONHOME = "~/.vim/vim_sessions"
   let g:startify_session_dir= "D:\\vim_sessions"
@@ -131,10 +131,6 @@ filetype indent on
 "------------------------------------------------------------------------
 syntax enable           " enable syntax hl
 "colorscheme gruvbox      " select color scheme
-set background=dark
-let g:solarized_termcolors=256
-colorscheme solarized
-
 "set relativenumber	    " show relative numbers
 set numberwidth=5
 set number              " show line numbers
@@ -299,7 +295,7 @@ let g:netrw_winsize = 30
 ""------------------------------------------------------------------------
 " gvim Settings
 "------------------------------------------------------------------------
-"set guifont=Consolas:h10
+set guifont=Consolas:h10
 set guioptions-=m  "remove menu bar
 set guioptions-=T  "remove toolbar
 set guioptions-=r  "remove right-hand scroll bar
@@ -369,6 +365,10 @@ Plug 'altercation/vim-colors-solarized'
 "Plug 'neoclide/coc.vim',{'branch': 'release'}
 call plug#end()
 
+"let g:solarized_termcolors=256
+set background=dark
+colorscheme solarized
+
 " --------------------------------------------------------------
 " vim-highlightedyank  configuration
 " --------------------------------------------------------------
@@ -377,24 +377,24 @@ call plug#end()
 " --------------------------------------------------------------
 " startify configuration
 " --------------------------------------------------------------
-
-let g:startify_custom_footer =
-           \ ['', "   Vim is charityware. Please read ':help uganda'.", '']
-
-let g:startify_skiplist = [
-                        \ '*.git',
-                        \ expand($VIMRUNTIME) . '/doc',
-                        \ '.vimrc',
-                       \ '_wiki\.*'
-                        \ ]
-" Startify Colors
-    hi StartifyBracket ctermfg=148
-    hi StartifyFile    ctermfg=147
-    hi StartifyFooter  ctermfg=240
-    hi StartifyHeader  ctermfg=114
-    hi StartifyNumber  ctermfg=215
-    hi StartifyPath    ctermfg=245
-    hi StartifySlash   ctermfg=245
-    hi StartifySpecial ctermfg=240
-
+"
+"let g:startify_custom_footer =
+"           \ ['', "   Vim is charityware. Please read ':help uganda'.", '']
+"
+"let g:startify_skiplist = [
+"                        \ '*.git',
+"                        \ expand($VIMRUNTIME) . '/doc',
+"                        \ '.vimrc',
+"                       \ '_wiki\.*'
+"                        \ ]
+"" Startify Colors
+"    hi StartifyBracket ctermfg=148
+"    hi StartifyFile    ctermfg=147
+"    hi StartifyFooter  ctermfg=240
+"    hi StartifyHeader  ctermfg=114
+"    hi StartifyNumber  ctermfg=215
+"    hi StartifyPath    ctermfg=245
+"    hi StartifySlash   ctermfg=245
+"    hi StartifySpecial ctermfg=240
+"
 " --------------------------------------------------------------
