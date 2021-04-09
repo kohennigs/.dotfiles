@@ -379,7 +379,7 @@ call plug#end()
 " --------------------------------------------------------------
  "You can toggle fullscreen mode by pressing spacebar.
 
-let g:peekaboo_window='vertical botright 60new'
+"let g:peekaboo_window=vert bo 30 new
 let g:peekaboo_delay=10
 let g:peekaboo_compact=0
 
