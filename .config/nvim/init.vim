@@ -104,12 +104,55 @@ endif
 
 
 call plug#begin('~/.vim/plugged')
-
+" verfied
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'psliwka/vim-smoothie'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+Plug 'mbbill/undotree'
+"Plug 'mhinz/vim-startify'
+Plug 'machakann/vim-highlightedyank'
+Plug 'altercation/vim-colors-solarized'
+Plug 'junegunn/vim-peekaboo'"
 Plug 'gruvbox-community/gruvbox'
+
+
+
 " erst mit nvim 0.5 stable auf dem Mac
 "Plug 'nvim-telescope/telescope.nvim'
 
+" testing 
+"Plug 'lervag/vimtex'
+"Plug 'wellle/targets.vim'
+"Plug 'tpope/vim-obsession'
+"Plug 'tmhedberg/SimpylFold'
+"Plug 'Valloric/YouCompleteMe'
+"Plug 'sainnhe/vim-color-atlantis'
+"Plug 'chase/focuspoint-vim'
+"Plug 'neoclide/coc.vim',{'branch': 'release'}
+
+"eher nicht
+"Plug 'vimwiki/vimwiki'
 call plug#end()
 
 colorscheme gruvbox 
 highlight Normal guibg=none
+
+
+
+" --------------------------------------------------------------
+" vim-highlightedyank  configuration
+" --------------------------------------------------------------
+let g:highlightedyank_highlight_duration = 250
+
+" --------------------------------------------------------------
+" peekaboo configuration   
+" --------------------------------------------------------------
+ "You can toggle fullscreen mode by pressing spacebar.
+
+let g:peekaboo_window='vertical botright 60new'
+let g:peekaboo_delay=10
+let g:peekaboo_compact=0
