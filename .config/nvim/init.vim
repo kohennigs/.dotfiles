@@ -121,12 +121,12 @@ filetype indent on
 let mapleader=" " 
 
 
-if (work)
-	nnoremap <leader>ev :vsplit D:\Projekte\koh_git\dotfiles\.vimrc<CR>  " open git VIMRC in vsplit
-	nnoremap <leader>sv :source D:\Projekte\koh_git\dotfiles\.vimrc<CR>  " source git VIMRC
-else
+if ($USER=="koh")
     nnoremap <leader>sv :source ~/koh-git/dotfiles/.config/nvim/init.vim<CR> 
     nnoremap <leader>ev :vsplit ~/koh-git/dotfiles/.config/nvim/init.vim<CR> 
+else
+    nnoremap <leader>ev :vsplit D:\Projekte\koh_git\dotfiles\.config\nvim\init.vim<CR>  
+    nnoremap <leader>sv :source D:\Projekte\koh_git\dotfiles\.config\nvim\init.vim<CR> 
 endif
 
 
