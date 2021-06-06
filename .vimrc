@@ -54,13 +54,32 @@ endif
 "------------------------------------------------------------------------
 " @work specific pathes
 "------------------------------------------------------------------------
-if (work == 1)
-	"echo "bcs config"
-	let $VIMHOME="D:\\prog\\Vim"
-	set undodir=$VIMHOME\\undofiles
-	let $MYPLUGDIRECTORY = "D:\\prog\\Vim\\plugged"
-	let $SESSIONHOME = "D:\\vim_sessions"
-	let $PYTHONHOME = "D:\\Programme\\Python37"
+if ($USER=="koh")
+    "echon "normal config"
+    "let $HOME = $USERPROFILE
+    let $VIMHOME='$HOME/.vim/'
+    let $MYPLUGDIRECTORY = "$HOME/.vim/plugged/"
+    let $SESSIONHOME = '$HOME/.vim/vim_sessions'
+    set undodir='$HOME/.vim/undo/'
+    "let $PYTHONHOME = 'D:\\Programme\\Python37'
+    let g:startify_session_dir= $SESSIONHOME
+    " --------------------------------------------------------------
+    " vimwiki configuration
+    " --------------------------------------------------------------
+    " vimwiki, used at work only
+    let g:vimwiki_list = [{
+                \ 'path'        : '$HOME/.vim/vimwiki',
+                \ 'path_html'   : '$HOME/.vom/vimwiki',
+                \ 'auto_toc'    : 1
+                \}]
+    let g:vimwiki_toc_header = 'Inhalt'
+else 
+    "echo "bcs config"
+    let $VIMHOME="D:\\prog\\Vim"
+    set undodir=$VIMHOME\\undofiles
+    let $MYPLUGDIRECTORY = "D:\\prog\\Vim\\plugged"
+    let $SESSIONHOME = "D:\\vim_sessions"
+    let $PYTHONHOME = "D:\\Programme\\Python37"
     let $HOME = $USERPROFILE
     let g:startify_session_dir= "D:\\vim_sessions"
     " --------------------------------------------------------------
@@ -68,29 +87,10 @@ if (work == 1)
     " --------------------------------------------------------------
     " vimwiki, used at work only
     let g:vimwiki_list = [{
-                    \ 'path'        : 'D:\\Projekte\\_wiki\\',
-                    \ 'path_html'   : 'D:\\Projekte\\_wiki\\',
-                    \ 'auto_toc'    : 1
-                    \}]
-    let g:vimwiki_toc_header = 'Inhalt'
-else 
-	"echon "normal config"
-    "let $HOME = $USERPROFILE
-	let $VIMHOME='$HOME/.vim/'
-	let $MYPLUGDIRECTORY = "$HOME/.vim/plugged/"
-	let $SESSIONHOME = '$HOME/.vim/vim_sessions'
-	set undodir='$HOME/.vim/undo/'
-	"let $PYTHONHOME = 'D:\\Programme\\Python37'
-    let g:startify_session_dir= $SESSIONHOME
-    " --------------------------------------------------------------
-    " vimwiki configuration
-    " --------------------------------------------------------------
-    " vimwiki, used at work only
-    let g:vimwiki_list = [{
-                    \ 'path'        : '$HOME/.vim/vimwiki',
-                    \ 'path_html'   : '$HOME/.vom/vimwiki',
-                    \ 'auto_toc'    : 1
-                    \}]
+                \ 'path'        : 'D:\\Projekte\\_wiki\\',
+                \ 'path_html'   : 'D:\\Projekte\\_wiki\\',
+                \ 'auto_toc'    : 1
+                \}]
     let g:vimwiki_toc_header = 'Inhalt'
 endif
 
