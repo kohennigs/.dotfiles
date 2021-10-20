@@ -53,12 +53,55 @@ else
 endif
 
 
+"------------------------------------------------------------------------
+" @work specific pathes
+"------------------------------------------------------------------------
+if ($USER=="koh")
+    "echon "normal config"
+    "let $HOME = $USERPROFILE
+    let $c='$HOME/.vim/'
+    let $MYPLUGDIRECTORY = "$HOME/.vim/plugged/"
+    let $SESSIONHOME = '$HOME/.vim/vim_sessions'
+    set undodir='$HOME/.vim/undo/'
+    "let $PYTHONHOME = 'D:\\Programme\\Python37'
+    let g:startify_session_dir= $SESSIONHOME
+    " --------------------------------------------------------------
+    " vimwiki configuration
+    " --------------------------------------------------------------
+    " vimwiki, used at work only
+    let g:vimwiki_list = [{
+                \ 'path'        : '$HOME/.vim/vimwiki',
+                \ 'path_html'   : '$HOME/.vom/vimwiki',
+                \ 'auto_toc'    : 1
+                \}]
+    let g:vimwiki_toc_header = 'Inhalt'
+else 
+    let $VIMHOME="D:\\prog\\Vim"
+    set undodir=$VIMHOME\\undofiles
+    let $MYPLUGDIRECTORY = "D:\\prog\\Vim\\plugged"
+    let $SESSIONHOME = "D:\\vim_sessions"
+    let $PYTHONHOME = "D:\\Programme\\Python37"
+    let $HOME = $USERPROFILE
+    let g:startify_session_dir= "D:\\vim_sessions"
+    " --------------------------------------------------------------
+    " vimwiki configuration
+    " --------------------------------------------------------------
+    " vimwiki, used at work only
+    let g:vimwiki_list = [{
+                \ 'path'        : 'D:\\Projekte\\_wiki\\',
+                \ 'path_html'   : 'D:\\Projekte\\_wiki\\',
+                \ 'auto_toc'    : 1
+                \}]
+    let g:vimwiki_toc_header = 'Inhalt'
+endif
+
+
 " use vim . to start project HERE,
 " and load custom settings
 set exrc
 
 set guicursor=
-set relativenumber
+"set relativenumber
 set nu
 set numberwidth=5
 set nohlsearch
@@ -83,8 +126,9 @@ set undolevels=1000
 set termguicolors
 set scrolloff=8
 " insertmode completition optiones
-set completeopt=menuone,noinsert,noselect
-set colorcolumn=80
+set completeopt=menu
+"set completeopt=menuone,noinsert,noselect
+"set colorcolumn=80
 set signcolumn=yes
 " from my vimrc
 set history=500 "lines of history vim saves
@@ -132,6 +176,8 @@ endif
 
 nnoremap <leader>w :w!<CR>" fast saving active file
 
+
+
 " old / unsused mappings, just a graveyard 
 " for memories. May be reappear as a Zombie.
 "nnoremap <leader>d ggdG<CR> " delete all
@@ -163,9 +209,9 @@ nnoremap <silent> <Esc><Esc> <Esc>:nohlsearch<CR><Esc> " Leave HLSearch
 " fzf mappings 
 "------------------------------------------------------------------------
 " git tracked files
-nmap <Leader>f :GFiles<CR> 
+nmap <Leader>F :GFiles<CR> 
 " find all files
-nmap <Leader>F :Files<CR> 
+nmap <Leader>f :Files<CR> 
 " find bufferers
 nmap <Leader>b :Buffers<CR>
 " find in history
@@ -175,7 +221,7 @@ nmap <Leader>l :BLines<CR>
 " find in all open buffers
 nmap <Leader>L :Lines<CR>
 " find in marks
-nmap <Leader>' :Makrs<CR>
+nmap <Leader>m :Marks<CR>
 " find in vim s help
 nmap <Leader>H :Helptags!<CR>
 
@@ -207,7 +253,14 @@ vnoremap > >gv
 
 
 
-
+" fullscreen under windows
+" https://vi.stackexchange.com/questions/1937/how-do-i-get-gvim-to-start-maximised-in-windows 
+if g:os == "Windows"
+  "run the command immediately when starting vim
+  "autocmd VimEnter * call libcallnr("gvimfullscreen.dll", "ToggleFullScreen", 0)
+  " activate/deactivate full screen with function key <F11>  
+  map <F11> <Esc>:call libcallnr("gvimfullscreen.dll", "ToggleFullScreen", 0)<CR>
+endif
 
 
 "
@@ -226,7 +279,9 @@ if empty(glob(data_dir . '/autoload/plug.vim'))
 endif
 
 
-call plug#begin('~/.vim/plugged')
+"call plug#begin('~/.vim/plugged')
+call plug#begin($MYPLUGDIRECTORY)
+
 " verfied
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -235,22 +290,36 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'psliwka/vim-smoothie'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-obsession'
+Plug 'chrisbra/vim-commentary'
 Plug 'mbbill/undotree'
-"Plug 'mhinz/vim-startify'
+Plug 'mhinz/vim-startify'
 Plug 'machakann/vim-highlightedyank'
 Plug 'altercation/vim-colors-solarized'
 Plug 'junegunn/vim-peekaboo'"
 Plug 'gruvbox-community/gruvbox'
 
+Plug 'neovim/nvim-lspconfig'
 
+"if has('nvim')
+"  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+"else
+"  Plug 'Shougo/deoplete.nvim'
+"  Plug 'roxma/nvim-yarp'
+"  Plug 'roxma/vim-hug-neovim-rpc'
+"endif
+"let g:deoplete#enable_at_startup = 1
 
+Plug 'lervag/vimtex'
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 " erst mit nvim 0.5 stable auf dem Mac
 "Plug 'nvim-telescope/telescope.nvim'
 
 " testing 
 "Plug 'lervag/vimtex'
 "Plug 'wellle/targets.vim'
-"Plug 'tpope/vim-obsession'
 "Plug 'tmhedberg/SimpylFold'
 "Plug 'Valloric/YouCompleteMe'
 "Plug 'sainnhe/vim-color-atlantis'
@@ -259,6 +328,9 @@ Plug 'gruvbox-community/gruvbox'
 
 "eher nicht
 "Plug 'vimwiki/vimwiki'
+
+" laufen nicht unter Win
+"Plug 'lambdalisue/vim-fullscreen'
 call plug#end()
 
 colorscheme gruvbox 
@@ -277,6 +349,15 @@ let g:highlightedyank_highlight_duration = 250
 let g:peekaboo_window='vertical botright 60new'
 let g:peekaboo_delay=10
 let g:peekaboo_compact=0
+
+" --------------------------------------------------------------
+" commentary configuration   
+" --------------------------------------------------------------
+autocmd FileType VHDL setlocal commentstring=--\ %s
+
+" --------------------------------------------------------------
+" smoothie  configuration   
+" --------------------------------------------------------------
 
 
 "------------------------------------------------------------------------
