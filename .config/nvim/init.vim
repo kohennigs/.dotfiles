@@ -17,13 +17,13 @@ if !exists("g:os")
 endif
 
 " example usage 
-"if g:os == "Darwin"
-"       set guifont=Fira\ Mono:h12
-"   elseif g:os == "Linux"
-"       set guifont=Fira\ Mono\ 10
-"   elseif g:os == "Windows"
-"       set guifont=Fira_Mono:h12:cANSI
-"   endif
+if g:os == "Darwin"
+       set guifont=Fira\ Mono:h12
+   elseif g:os == "Linux"
+       set guifont=Fira\ Mono\ 10
+   elseif g:os == "Windows"
+       set guifont=Consolas:h16:cANSI
+   endif
 
  
 "-----------------------------------------------------------------------
@@ -125,6 +125,7 @@ set undofile
 set undolevels=1000
 set termguicolors
 set scrolloff=8
+set inccommand=split
 " insertmode completition optiones
 set completeopt=menu
 "set completeopt=menuone,noinsert,noselect
@@ -175,6 +176,7 @@ endif
 
 
 nnoremap <leader>w :w!<CR>" fast saving active file
+nnoremap <leader><space> :e<CR> " fast reread file
 
 
 
@@ -252,7 +254,6 @@ vnoremap > >gv
 
 
 
-
 " fullscreen under windows
 " https://vi.stackexchange.com/questions/1937/how-do-i-get-gvim-to-start-maximised-in-windows 
 if g:os == "Windows"
@@ -314,8 +315,6 @@ Plug 'lervag/vimtex'
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
-" erst mit nvim 0.5 stable auf dem Mac
-"Plug 'nvim-telescope/telescope.nvim'
 
 " testing 
 "Plug 'lervag/vimtex'
