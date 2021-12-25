@@ -1,5 +1,5 @@
 if($USER=="koh")
-    echo "Welcome to NeoVim!"
+    echo "Welcome to NeoVim@home!"
 else
     echo "Welcome to NeoVim, bcskahe"
 endi
@@ -205,6 +205,19 @@ nnoremap <silent> <Esc><Esc> <Esc>:nohlsearch<CR><Esc> " Leave HLSearch
 "nmap <leader>f7 :set foldlevel=7<CR>
 "nmap <leader>f8 :set foldlevel=8<CR>
 "nmap <leader>f9 :set foldlevel=9<CR>
+
+
+"------------------------------------------------------------------------
+" svn mappings 
+"------------------------------------------------------------------------
+" svn log
+nmap <Leader>sl :! svn log -l3 %<CR>
+" svn diff
+nmap <Leader>sd :! svn diff %<CR>
+" svn update
+nmap <Leader>su :! svn update %<CR>
+" svn commit
+nmap <Leader>sc :! svn commit %<CR>
 
 
 "------------------------------------------------------------------------
