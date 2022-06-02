@@ -22,8 +22,9 @@ if g:os == "Darwin"
    elseif g:os == "Linux"
        set guifont=Fira\ Mono\ 10
    elseif g:os == "Windows"
-       set guifont=Consolas:h16:cANSI
-   endif
+       "set guifont=Consolas:h8
+       GuiFont! Consolas:h8
+  endif
 
  
 "-----------------------------------------------------------------------
@@ -139,7 +140,7 @@ set ruler
 set laststatus=2        " alwys show the status line
 set splitbelow
 set splitright
-
+set mouse=a
 
 syntax enable           " enable syntax hl
 
@@ -303,17 +304,17 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'psliwka/vim-smoothie'
 Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-surround'
+"Plug 'tpope/vim-surround'
 Plug 'tpope/vim-obsession'
 Plug 'chrisbra/vim-commentary'
-Plug 'mbbill/undotree'
+"Plug 'mbbill/undotree'
 Plug 'mhinz/vim-startify'
 Plug 'machakann/vim-highlightedyank'
 Plug 'altercation/vim-colors-solarized'
 Plug 'junegunn/vim-peekaboo'"
 Plug 'gruvbox-community/gruvbox'
 
-Plug 'neovim/nvim-lspconfig'
+"Plug 'neovim/nvim-lspconfig'
 
 "if has('nvim')
 "  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
